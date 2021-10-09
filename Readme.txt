@@ -1,1 +1,1 @@
-
+Proyecto acadèmico sobre JavaScript.
