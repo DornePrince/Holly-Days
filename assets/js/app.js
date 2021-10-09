@@ -1,10 +1,25 @@
 
+/* - - - VARIABLES - - - */
 const precioBase = 10;
 
-/* Usuarios */
+let numeros = "0123456789";
+let letras = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let cupon = numeros + letras;
 
+// Dom
+const inputNombre = document.querySelector('#input-nombre');
+const inputEmail = document.querySelector('#input-email');
+const inputDestino = document.querySelector('#input-destino');
+const inputCantidadDias = document.querySelector('#input-cantidadDias');
+const inputEdad = document.querySelector('#input-edad');
+const btnCotizar = document.querySelector('#btn-cotizar');
+
+
+// Constructor de usuario
 class Usuario {
-    constructor(destino, cantidadDias, edad) {
+    constructor(nombre, email, destino, cantidadDias, edad) {
+        this.nombre = nombre.toLowerCase();
+        this.email = email.toLowerCase();
         this.destino  = destino.toUpperCase();
         this.cantidadDias  = parseInt(cantidadDias);
         this.edad = parseInt(edad);
@@ -16,10 +31,29 @@ class Usuario {
 
 
 
+/* - - - FUNCIONES - - - */
 
+// Pedir info del viaje
+function pedirInfo(){
+    let dest = prompt('Ingresá el destino de tu viaje');
+    let cantidadDias = Number(prompt('Ingresá la cantidad de días'));
+    let edad = Number(prompt('Ingresá tu edad'));
+    let nombre = prompt('Nombre');
+    let email = prompt('email');
+
+    let usuarioCreado = new Usuario(nombre, email, dest, cantidadDias , edad);
+
+    return usuarioCreado;
+
+}
+
+// Calcular costo del seguro
 function calcularCosto(usuario){
 
     
+
+
+    //Evalua por destino
     const destinoCaro = 1.4;
     const destinoBarato = 1.2;
     
@@ -30,19 +64,11 @@ function calcularCosto(usuario){
     } else{
         costoFinal = costoFinal * destinoBarato;
     }
-/* 
-    switch (usuario.destino) {
-        case usuario.destino == 'USA' || usuario.destino == 'EUROPA':
-            costoFinal * destinoCaro;
 
-        default:
-            costoFinal * destinoBarato;
-
-    } */
     
     
     
-    
+    // Evalua por edad
     const menorDeEdad = 1.1;
     const mayorDeEdad = 1.2;
     const adultoMayor = 1.4;
@@ -54,26 +80,13 @@ function calcularCosto(usuario){
     } else{
         costoFinal = costoFinal * adultoMayor;
     }
-/* 
-    switch (usuario.edad) {
-        case usuario.edad < 18:
-            costoFinal = costoFinal * menorDeEdad;
-
-            
-        case usuario.edad >= 18 && usuario.edad <= 45:
-            costoFinal = costoFinal * mayorDeEdad;
-
-        case usuario.edad >= 46:
-            costoFinal = costoFinal * adultoMayor;
 
 
 
-    } */
-
-
-
+    // Evalua por cantidad de días
     costoFinal = parseInt(costoFinal * usuario.cantidadDias);
     usuario.costoDelViaje = costoFinal;
+
     usuariosCompradores.push(usuario);
     console.log(`El costo final para este usuario es de ${costoFinal}`);
     console.log(`El usuario se agregó a la lista de compradores`);
@@ -86,66 +99,97 @@ function calcularCosto(usuario){
 }
 
 
-
-
-// Array de usuarios para almacenar objetos
+// Array de usuarios
 let usuariosCompradores = [];
 
 
 let usuarioCreado = pedirInfo();
 calcularCosto(usuarioCreado);
 
+// Mostrar en el html
+function imprimirHtml(){
+    const renderNombre = document.createElement('p');
+    renderNombre.textContent = usuarioCreado.nombre;
+    const renderContainer = document.querySelector('#render-container');
+    
+    const renderDestino = document.createElement('p');
+    renderDestino.textContent = usuarioCreado.destino;
+    
+    
+    const renderCantidadDias = document.createElement('p');
+    renderCantidadDias.textContent = usuarioCreado.cantidadDias;
+    
+    
+    const renderCosto = document.createElement('p');
+    renderCosto.textContent = usuarioCreado.costoDelViaje;
 
+    const renderMensaje = document.createElement('p');
+    const mensajeCotizacion = `${usuarioCreado.nombre}, el precio para tu viaje de ${usuarioCreado.cantidadDias} días a ${usuarioCreado.destino} tiene un precio final de ${usuarioCreado.costoDelViaje} usd. `;
+    renderMensaje.textContent = mensajeCotizacion;
 
-// Pedir info del viaje
+    const renderBtnCompra = document.createElement('button');
+    renderBtnCompra.textContent = '¡Contratar seguro!';
+    renderBtnCompra.classList.add('btn');
+    renderBtnCompra.classList.add('btn-primary');
 
-function pedirInfo(){
-    let dest = prompt('Ingresá el destino de tu viaje');
-    let cantidadDias = Number(prompt('Ingresá la cantidad de días'));
-    let edad = Number(prompt('Ingresá tu edad'));
+    
 
-    let usuarioCreado = new Usuario(dest, cantidadDias , edad);
+    setTimeout(() => {
 
-    return usuarioCreado;
+        renderContainer.appendChild(renderMensaje);
+        renderContainer.appendChild(renderBtnCompra);
+    }, 1500);
 
+    //const contenedorNombre = inputNombre.parentElement;
 }
 
 
 
 
+/* btnCotizar.addEventListener('click', ()=>{
+    console.log('click en cotizar..');
+}); */
+
+btnCotizar.addEventListener('click', mostrarInfo)
+
+function mostrarInfo(){
+    imprimirHtml();
+}
 
 
-// CALCULAR COSTO
-
-// Tengo un precio base que se modifica con: 1) destino 2) edad 3) cantidad de dias
-/* 
-1) Destino
-*1.2 LATAM
-*1.1 Argentina
-*1.4 USA
-*1.5 Europa
-*1.5 Asia
-*1.5 Oceanía
-*1.3 África
-
-2) Edad
-*1.1 <18
-*1.2 18-45
-*1.4 >=46
-
-3) Cantidad de dias
-resultado * cantidad de días
-
+// Crear cupón random
+/* La idea es que haya n cantidad de cupones y al hacer click vayan disminuyendo
+   Ej: los primeros 50 compradores obtienen un % de descuento 
 */
+const generarCupon = (longitud) =>{
+    let cuponDesc = "";
+    for(let i=0; i < longitud; i++){
+        let aleatorio = Math.floor(Math.random() * cupon.length);
+        cuponDesc += cupon.charAt(aleatorio);
+    }
+    return cuponDesc;
+};
+
+let cuponGenerado= generarCupon(8);
+console.log(cuponGenerado);
 
 
 
 
 
+/* - - - LOCAL STORAGE - - - */
 const usuarioStorage = localStorage.setItem( 'usuario', JSON.stringify(usuarioCreado) );
 const usuarioJSON = localStorage.getItem('usuario');
 console.log(`Log con usuario del storage:`);
 console.log(JSON.parse(usuarioJSON));
+
+
+
+
+
+
+
+
 
 
 

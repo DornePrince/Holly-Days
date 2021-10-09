@@ -1,0 +1,19 @@
+#render-container{
+    background-color: #F8FBFE;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top:25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#render-container p{
+    padding: 6px;
+}
+
+#render-container button{
+    padding: 6px;
+}
