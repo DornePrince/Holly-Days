@@ -17,3 +17,56 @@
 #render-container button{
     padding: 6px;
 }
+
+.section-title h2{
+    font-family: 'Poppins';
+    font-size: 50px;
+    font-weight: bold;
+    color: #030303;
+    text-transform: none;
+}
+
+.ocultar{
+    visibility: hidden;
+}
+
+.mostrar{
+    visibility: visible;
+}
+
+tr, td{
+    text-align: center;
+}
+
+
+.btnDesc{
+    font-weight: bold;
+}
+
+.cuponContainer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.3);
+    transform: scale(0);
+    transition: transform .3s;
+    visibility: hidden;
+}
+
+.cupon-content{
+    background-color: whitesmoke;
+    width: 50vw;
+    height: 50vh;
+    padding: 3rem;
+}
+
+.show{
+    transform: scale(1);
+    visibility: visible;
+}

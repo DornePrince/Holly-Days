@@ -153,7 +153,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Cotiza tu seguro de viaje</h2>
+          <h2 class="cotizatitle">Cotiza tu seguro al instante</h2>
           <p>Sabemos lo importante que es que viajes con tranquilidad. Encontrá en Holly Days los mejores precios para tu próximo viaje.</p>
         </div>
 
@@ -193,11 +193,11 @@
                     <div class="col form-group mt-12 mt-md-12">
                       <label for="destino">Destino</label><br>
                       <select id="input-destino" required>
-                        <option value="norteamerica">Norteamérica</option>
-                        <option value="europa" selected>Europa</option>
-                        <option value="latinoamerica">Latinoamérica</option>
-                        <option value="asiaoceania">Ásia/Oceanía</option>
-                        <option value="africa">África</option>
+                        <option value="Norteamérica">Norteamérica</option>
+                        <option value="Europa" selected>Europa</option>
+                        <option value="Latinoamérica">Latinoamérica</option>
+                        <option value="Asia/Oceanía">Ásia/Oceanía</option>
+                        <option value="África">África</option>
                       </select>
                     </div>
   
@@ -218,17 +218,39 @@
 
                   </div>
                   
-                  <div class="text-center mt-4"><button type="submit" id="btn-cotizar" class="btn btn-primary" >Cotizar</button></div>
+                  <div class="text-center mt-4"><button type="submit" id="btn-cotizar" class="btn btn-primary" onclick="capturarDatos();" >Cotizar</button></div>
               </form>
     
               </div>
             </div>
             <!-- col resultado -->
-            <div class="col">
+            <div id="contenedorRender" class="col ocultar">
               <div id="render-container" class="container">
-      
+                
+                <table class="table" id="tabla">
+                  <thead class="thead-inverse">
+                    <tr class="table-dark">
+                      <th>Nombre</th>
+                      <th>Destino</th>
+                      <th>Cantidad de días</th>
+                      <th>Precio</th>
+                    </tr>
 
-              </div>
+                    <tbody><td></td><td></td><td></td><td></td></tbody>
+                  </thead>
+                </table>
+
+              </div> <!-- cierra render container -->
+
+              <form class="row g-3 mt-3 d-flex justify-content-center">
+                <div class="col-auto">
+                  <label for="inputCupon" class="visually-hidden">Cupón</label>
+                  <input type="text" class="form-control" id="inputCupon" >
+                </div>
+                <div class="col-auto">
+                  <button type="submit" class="btn btn-primary mb-3" id="btnDescuento" onclick="aplicarDescuento();">Aplicar descuento</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -332,7 +354,13 @@
         <div class="text-center">
           <h3>¡No esperes más!</h3>
           <p>Asegurá tu próximo viaje con nosotros y ocupate sólo en pasarla bien.</p>
-          <a class="cta-btn" href="#">Buscar seguro</a>
+
+          <button type="button" class="btn btn-light btnDesc" onclick="obtenerDescuento()">
+            Obtener descuento
+          </button>
+
+
+
         </div>
       </div>
     </section><!-- End Cta Section -->
@@ -343,12 +371,23 @@
 
 
 
+    <div class="cuponContainer">
+      <div class="container cupon-content">
+        <button type="button" class="btn-close" aria-label="Close" id="btnClose"></button>
+        <div class="row">
+          <div class="col text-center"><p>Tu cupón de descuento:</p></div>
+        </div>
+  
+        <div id="cupon" class="row text-center">
 
+        </div>
+      </div>
+    </div>
 
 
   </main><!-- End #main -->
 
-      
+
 
       <!-- Footer -->
       <footer class="text-center text-lg-start bg-light text-muted">
