@@ -36,6 +36,8 @@
   <!-- Mi css -->
   <link rel="stylesheet" href="assets/css/estilos.css">
 
+
+
 </head>
 
 <body>
@@ -44,16 +46,16 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Holly Days</a></h1>
+
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <a href="index.html" class="logo"><img src="assets/img/logo.svg" alt="" class="img-fluid"></a>
 
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
           <li><a class="nav-link scrollto" href="#">Buscar vuelos</a></li>
           <li><a class="nav-link scrollto o" href="#">Contacto</a></li>
-          <li><a class="getstarted scrollto" href="#">Buscar seguro</a></li>
+          <li><a class="getstarted scrollto btnPrimario" href="#contact">Buscar seguro</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -68,42 +70,47 @@
         <div class="col-xl-7 col-lg-9 text-center pruebajs">
           <h1>Somos Holly Days</h1>
           <h2>Viajá sin preocupaciones</h2>
+          
+
+          
+
+ 
         </div>
       </div>
       <div class="text-center">
-        <a href="#about" class="btn-get-started scrollto">Buscar seguro</a>
+        <a href="#contact" class="btn-get-started scrollto btnPrimario">Buscar seguro</a>
       </div>
 
       <div class="row icon-boxes">
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
           <div class="icon-box">
-            <div class="icon"><i class="ri-stack-line"></i></div>
+            <div class="icon"><i class="bi bi-file-lock2"></i></div>
             <h4 class="title"><a href="">Seguro</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            <p class="description">Te brindamos seguridad y trabajamos con las mejores compañías</p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
           <div class="icon-box">
-            <div class="icon"><i class="ri-palette-line"></i></div>
+            <div class="icon"><i class="bi bi-clock-history"></i></div>
             <h4 class="title"><a href="">Rápido</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+            <p class="description">En cuestión de pocos minutos vas a poder tener asegurado tu viaje</p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
           <div class="icon-box">
-            <div class="icon"><i class="ri-command-line"></i></div>
+            <div class="icon"><i class="bi bi-currency-dollar"></i></div>
             <h4 class="title"><a href="">Económico</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+            <p class="description">Encontrá los mejores precios que se ajustan a tu bolsillo</p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="500">
           <div class="icon-box">
-            <div class="icon"><i class="ri-fingerprint-line"></i></div>
+            <div class="icon"><i class="bi bi-check-all"></i></div>
             <h4 class="title"><a href="">Fácil  </a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+            <p class="description">Contamos con un equipo de soporte para atender a tus consultas</p>
           </div>
         </div>
 
@@ -112,6 +119,16 @@
   </section><!-- End Hero -->
 
   <main id="main">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_ba1mvckj.json" background="transparent" speed="1" style="width: 450px; height: 450px" loop  autoplay class="mx-auto  lottie"></lottie-player>
+        </div>
+
+
+      </div>
+    </div>
 
         <!-- ======= About Video Section ======= -->
         <section id="about-video" class="about-video">
@@ -210,6 +227,8 @@
                       <label for="cantidadDias">Días</label>
                       <input type="number" class="form-control" name="cantidadDias" id="input-cantidadDias" required>
                       </div>
+
+                      
                    </div><!-- cierra row -->
         
   
@@ -222,6 +241,8 @@
               </form>
     
               </div>
+
+              
             </div>
             <!-- col resultado -->
             <div id="contenedorRender" class="col ocultar">
@@ -345,7 +366,6 @@
 
 
 
-
  
 
     <!-- ======= Cta Section ======= -->
@@ -353,7 +373,7 @@
       <div class="container" data-aos="zoom-in">
         <div class="text-center">
           <h3>¡No esperes más!</h3>
-          <p>Asegurá tu próximo viaje con nosotros y ocupate sólo en pasarla bien.</p>
+          <p>Asegurá tu próximo viaje con nosotros y ocupate sólo de pasarla bien.</p>
 
           <button type="button" class="btn btn-light btnDesc" onclick="obtenerDescuento()">
             Obtener descuento
@@ -366,14 +386,14 @@
     </section><!-- End Cta Section -->
 
 
-
+  
 
 
 
 
     <div class="cuponContainer">
       <div class="container cupon-content">
-        <button type="button" class="btn-close" aria-label="Close" id="btnClose"></button>
+        <button type="button" class="btn-close btnPrimario" aria-label="Close" id="btnClose"></button>
         <div class="row">
           <div class="col text-center"><p>Tu cupón de descuento:</p></div>
         </div>
@@ -390,7 +410,7 @@
 
 
       <!-- Footer -->
-      <footer class="text-center text-lg-start bg-light text-muted">
+      <footer class="text-center text-lg-start  text-muted bg-gray-900">
 
 
         <!-- Section: Links  -->
@@ -474,7 +494,7 @@
         <!-- Section: Links  -->
       
         <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 1);">
           © 2021 Copyright:
           <a class="text-reset fw-bold" href="#">Holly days</a>
         </div>
@@ -494,11 +514,22 @@
   <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
   <!-- JS propio -->
   <script src="assets/js/app.js"></script>
+
+  <!-- Animaciones js -->
+  
+  <script src="assets/js/animacion.js"></script>
+
+  <!-- Lottie -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+
 #render-container{
     background-color: #F8FBFE;
     font-weight: 500;
@@ -22,7 +23,7 @@
     font-family: 'Poppins';
     font-size: 50px;
     font-weight: bold;
-    color: #030303;
+    color: #124265;
     text-transform: none;
 }
 
@@ -43,6 +44,12 @@ tr, td{
     font-weight: bold;
 }
 
+
+.description{
+    color: #333333;
+}
+
+
 .cuponContainer{
     position: fixed;
     top: 0;
@@ -52,11 +59,16 @@ tr, td{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #000;
-    background-color: rgba(0, 0, 0, 0.3);
+
+    
     transform: scale(0);
     transition: transform .3s;
     visibility: hidden;
+}
+
+.cta{
+    background: rgb(36,135,206);
+background: linear-gradient(90deg, rgba(36,135,206,1) 0%, rgba(108,191,250,1) 100%);
 }
 
 .cupon-content{
@@ -66,7 +78,34 @@ tr, td{
     padding: 3rem;
 }
 
+.cupon-content p{
+    color: #333333;
+}
+
 .show{
     transform: scale(1);
     visibility: visible;
 }
+
+
+.lottie{
+    width: 100%;
+    height: 100%;
+}
+
+
+footer{
+    background-color: #333333;
+}
+
+footer h6, p{
+    color: white;
+}
+
+
+@media (min-width: 300px) and (max-width: 900px) {
+    .lottie{
+        max-width: 120%;
+        max-height: 80%;
+    }
+  }

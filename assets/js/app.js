@@ -213,7 +213,6 @@ aplicarDescuento();
 
 
 
-
 /* - - - LOCAL STORAGE - - - */
 /* const usuarioStorage = localStorage.setItem( 'usuario', JSON.stringify(nuevoUsuarioCapturar) );
 const usuarioJSON = localStorage.getItem('usuario');
