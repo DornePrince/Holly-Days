@@ -1,4 +1,3 @@
-
 /* - - - VARIABLES - - - */
 const precioBase = 10;
 
@@ -35,7 +34,7 @@ function calcularCosto(usuario){
     
     let costoFinal = precioBase;
     
-    if(usuario.destino == 'USA' || usuario.destino == 'EUROPA'){
+    if(nuevoUsuarioCapturar.destino == 'USA' || nuevoUsuarioCapturar.destino == 'EUROPA'){
         costoFinal = costoFinal * destinoCaro;
     } else{
         costoFinal = costoFinal * destinoBarato;
@@ -49,9 +48,9 @@ function calcularCosto(usuario){
     const mayorDeEdad = 1.2;
     const adultoMayor = 1.4;
 
-    if(usuario.edad < 18 && usuario.edad >0){
+    if(nuevoUsuarioCapturar.edad < 18 && nuevoUsuarioCapturar.edad >0){
         costoFinal = costoFinal * menorDeEdad
-    } else if(usuario.edad >= 18 && usuario.edad <= 45){
+    } else if(nuevoUsuarioCapturar.edad >= 18 && usuario.edad <= 45){
         costoFinal = costoFinal * mayorDeEdad;
     } else{
         costoFinal = costoFinal * adultoMayor;
@@ -60,8 +59,8 @@ function calcularCosto(usuario){
 
 
     // Evalua por cantidad de días
-    costoFinal = parseInt(costoFinal * usuario.cantidadDias);
-    usuario.costoDelViaje = costoFinal;
+    costoFinal = parseInt(costoFinal * nuevoUsuarioCapturar.cantidadDias);
+    nuevoUsuarioCapturar.costoDelViaje = costoFinal;
     
 
 }
@@ -73,13 +72,13 @@ function calcularCosto(usuario){
 function capturarDatos(){
 
 
-    function Persona(nombre, email, destinoViaje, edad, cantidadDias) {
+    function Persona(nombre, email, destinoViaje, edad, cantidadDias, costo) {
         this.nombre = nombre;
         this. email = email;
         this.destinoViaje = destinoViaje;
         this.edad = edad;
         this.cantidadDias = cantidadDias;
-        this.costo = 0;
+        this.costo = costo;
         //this.cupon = cuponGenerado;
     }
 
@@ -163,7 +162,7 @@ console.log(cuponGenerado);
 function obtenerDescuento() {
 
 
-    let cupon = document.getElementById("cupon")
+    let cupon = document.getElementById("cupon");
 
     if(cuponGenerado){
         cupon.innerHTML += `<div class="col"><p class="cupon">${cuponGenerado}</p></div>`;
@@ -171,13 +170,10 @@ function obtenerDescuento() {
     
     
 
-    const btnDesc = document.querySelector('.btnDesc');
     const modalDesc = document.querySelector('.cuponContainer');
     const btnClose = document.querySelector('#btnClose');
 
-    btnDesc.addEventListener('click', ()=>{
-        modalDesc.classList.add('show');
-    })
+    modalDesc.classList.add('show');
 
     btnClose.addEventListener('click', () =>{
         modalDesc.classList.remove('show');
@@ -192,14 +188,24 @@ function aplicarDescuento(){
 
 
     inputCupon.addEventListener('input', (e) =>{
-        console.log(e.target.value);
-        e.preventDefault();
 
-        if(e.target.value == cuponGenerado){
-            console.log('cupon aplicado');
-        } else{
-            console.log('cupon incorrecto');
-        }
+        const btnDesc = document.querySelector('#btnDescuento');
+        let leer = e.target.value;
+        console.log(leer);
+
+        btnDesc.addEventListener('click', (e)=>{
+            e.preventDefault();
+
+             if(leer === cuponGenerado){
+                console.log('cupon aplicado... calculando descuento');
+                
+    
+            } else{
+                console.log('cupon incorrecto');
+            } 
+        });
+
+
     })
 
 
