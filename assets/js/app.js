@@ -21,7 +21,6 @@ const btnDescuento = document.querySelector('#btnDescuento')
 /* - - - FUNCIONES - - - */
 
 
-
 // Calcular costo del seguro
 function calcularCosto(usuario){
 
@@ -34,8 +33,10 @@ function calcularCosto(usuario){
     
     let costoFinal = precioBase;
     
-    if(nuevoUsuarioCapturar.destino == 'USA' || nuevoUsuarioCapturar.destino == 'EUROPA'){
+    if(destinoCapturar == 'Norteamérica' || destinoCapturar == 'Europa' || destinoCapturar == 'Asia/Oceanía'){
+
         costoFinal = costoFinal * destinoCaro;
+        console.log('destino caro');
     } else{
         costoFinal = costoFinal * destinoBarato;
     }
@@ -48,9 +49,9 @@ function calcularCosto(usuario){
     const mayorDeEdad = 1.2;
     const adultoMayor = 1.4;
 
-    if(nuevoUsuarioCapturar.edad < 18 && nuevoUsuarioCapturar.edad >0){
-        costoFinal = costoFinal * menorDeEdad
-    } else if(nuevoUsuarioCapturar.edad >= 18 && usuario.edad <= 45){
+    if(edad < 18 && edad >0){
+        costoFinal = costoFinal * menorDeEdad;
+    } else if(edad >= 18 && edad <= 45){
         costoFinal = costoFinal * mayorDeEdad;
     } else{
         costoFinal = costoFinal * adultoMayor;
@@ -59,14 +60,11 @@ function calcularCosto(usuario){
 
 
     // Evalua por cantidad de días
-    costoFinal = parseInt(costoFinal * nuevoUsuarioCapturar.cantidadDias);
+    costoFinal = parseInt(costoFinal * cantidadDias);
     nuevoUsuarioCapturar.costoDelViaje = costoFinal;
-    
+
 
 }
-
-
-
 
 //Capturar datos del form
 function capturarDatos(){
@@ -87,8 +85,7 @@ function capturarDatos(){
     let destinoCapturar = inputDestino.value;
     let edadCapturar = inputEdad.value;
     let diasCapturar = inputCantidadDias.value;
-    /* rever costo */
-    //let costo = usuarioCreado.costoDelViaje;
+    //let costo = precioFinal;
 
 
 
@@ -98,6 +95,66 @@ function capturarDatos(){
     agregarPersona();
 
 }
+
+// Por destino
+/* function calculaDestino (){
+    const destinoCaro = 1.4;
+    const destinoBarato = 1.2;
+    let precioTotal;
+
+    if (destinoCapturar == 'Norteamérica' || destinoCapturar == 'Europa' || destinoCapturar == 'Asia/Oceanía'){
+        precioTotal = precioBase * destinoCaro;
+    } else{
+        precioTotal = precioBase * destinoBarato;
+    }
+
+    return precioTotal;
+}
+
+let precio = calculaDestino();
+
+
+
+
+// Por edad
+function calcularEdad(){
+    const mayorDeEdad = 1.2;
+    const menorDeEdad = 1.1;
+    const terceraEdad = 1.3;
+
+    if (edadCapturar < 18){
+        precio = precio * menorDeEdad;
+    } else if(edadCapturar >= 18 && edadCapturar < 45){
+        precio = precio * mayorDeEdad;
+    } else{
+        precio = precio * terceraEdad;
+    }
+
+    return precio;
+}
+
+
+let precioEdad = calcularEdad();
+
+
+
+// Cantidad de días
+function calcularCantidadDias(){
+    let precioFinal;
+    precioFinal = precioEdad * diasCapturar;
+
+    return precioFinal;
+}
+
+let precioFinal = Math.round( calcularCantidadDias() );
+
+console.log(`El precio total FINAL para el viaje a ${destino} por ${dias} días es de ${precioFinal}`); */
+
+
+
+
+
+
 
 
 //Array de base de datos
@@ -164,9 +221,7 @@ function obtenerDescuento() {
 
     let cupon = document.getElementById("cupon");
 
-    if(cuponGenerado){
-        cupon.innerHTML += `<div class="col"><p class="cupon">${cuponGenerado}</p></div>`;
-    } 
+    if(cuponGenerado){ cupon.innerHTML = `<div class="col"><p class="cupon">${cuponGenerado}</p></div>`; } 
     
     
 
@@ -212,8 +267,6 @@ function aplicarDescuento(){
 }
 
 aplicarDescuento();
-
-
 
 
 
