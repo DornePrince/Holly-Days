@@ -5,6 +5,8 @@ const numeros = "0123456789";
 const letras = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const cupon = numeros + letras;
 
+
+
 // Dom
 const inputNombre = document.querySelector("#input-nombre");
 const inputEmail = document.querySelector("#input-email");
@@ -14,6 +16,15 @@ const inputEdad = document.querySelector("#input-edad");
 const btnCotizar = document.querySelector("#btn-cotizar");
 const inputCupon = document.querySelector("#inputCupon");
 const btnDescuento = document.querySelector("#btnDescuento");
+
+/* const inputNombre = $("#input-nombre")
+const inputEmail = $("#input-email")
+const inputDestino = $('#input-destino')
+const iinputCantidadDias = $("#input-cantidadDias")
+const inputEdad = $("#input-edad")
+const btnCotizar = $("#btn-cotizar")
+const inputCupon = $("#inputCupon")
+const btnDescuento = $("#btnDescuento") */
 
 /* - - - FUNCIONES - - - */
 
@@ -134,6 +145,8 @@ function mostrarCartel() {
   }, 300);
 }
 
+
+
 function cotizarUsuario() {
   let nombreCapturar = inputNombre.value;
   let emailCapturar = inputEmail.value;
@@ -167,10 +180,6 @@ function mostrarInfo(e) {
 
 /* CUPONES DE DESCUENTO */
 
-// Crear cupón random
-/* La idea es que haya n cantidad de cupones y al hacer click vayan disminuyendo
-   Ej: los primeros 50 compradores obtienen un % de descuento 
-*/
 const generarCupon = (longitud) => {
   let cuponDesc = "";
   for (let i = 0; i < longitud; i++) {
@@ -184,21 +193,21 @@ let cuponGenerado = generarCupon(8);
 
 console.log(cuponGenerado);
 
+/* Con jquery */
 function obtenerDescuento() {
-  let cupon = document.getElementById("cupon");
 
   if (cuponGenerado) {
-    cupon.innerHTML = `<div class="col"><p class="cupon">${cuponGenerado}</p></div>`;
+    $('#cupon').append (`<div class="col"><p class="cupon">${cuponGenerado}</p></div>`);
   }
 
-  const modalDesc = document.querySelector(".cuponContainer");
-  const btnClose = document.querySelector("#btnClose");
 
-  modalDesc.classList.add("show");
+  $('.cuponContainer').addClass('show');
 
-  btnClose.addEventListener("click", () => {
-    modalDesc.classList.remove("show");
-  });
+
+
+  $('#btnClose').click(function(){
+    $('.cuponContainer').removeClass('show');
+  })
 }
 
 function aplicarDescuento() {
