@@ -1,73 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+window.addEventListener('hashchange', router);
+//document.addEventListener('DOMContentLoaded', router);
+document.querySelector('#inicio').addEventListener('click', e=>{
+    e.preventDefault();
+    location.hash = "";
+    router();
+})
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Holly Days - Seguros de viaje</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <!-- GOOGLE FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-
-  <!-- Mi css -->
-  <link rel="stylesheet" href="assets/css/estilos.css">
-
-
-
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
-
-
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="index.html" class="logo"><img src="assets/img/logo.svg" alt="" class="img-fluid"></a>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero" id="inicio">Inicio</a></li>
-          <li><a class="nav-link scrollto" href="#">Buscar vuelos</a></li>
-          <li><a class="nav-link scrollto" href="#">Contacto</a></li>
-          <li><a class="getstarted scrollto btnPrimario" href="#contact">Buscar seguro</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
-
-
-
-  
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
+const HomeComponent = {
+    render(){
+        return `
+        <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
       <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-9 text-center pruebajs">
@@ -414,9 +356,10 @@
   </main><!-- End #main -->
 
 
-<!--   <div id="vuelosContainer" class="container mt-5 mb-5">
+  <div id="vuelosContainer" class="container mt-5 mb-5">
     <div class="section-title">
       <h2>Busca tu próximo destino</h2>
+      <!-- <p>Somos un grupo de especialistas en turismo y nuestra misión es brindarte la mejor experiencia a la hora de contratar un seguro. </p> -->
     </div>
     <div class="row">
       
@@ -434,139 +377,56 @@
       </div>
     </div>
   </div>
- -->
+
+        `
+
+    }
+}
 
 
-      <!-- Footer -->
-      <footer class="text-center text-lg-start  text-muted bg-gray-900">
+const ContactoComponent = {
+    render(){
+        return
+        
+    }
+}
 
-
-        <!-- Section: Links  -->
-        <section class="">
-          <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
-            <div class="row mt-3">
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                <!-- Content -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                  <i class="fas fa-gem me-3"></i>Holly Days
-                </h6>
-                <p>
-                  Nos encargamos de que viajes con total seguridad y sin preocupaciones.
-                </p>
-              </div>
-              <!-- Grid column -->
-      
-              <!-- Grid column -->
-              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                  Seguros
-                </h6>
-                <p>
-                  <a href="CjwKCAjwndCKBhAkEiwAgSDKQcm54WRe_CodP7LwMRsSXv_XIrq4ShWsva16EzwoHl9McUiQnWokHhoC" class="text-reset">Assist Card</a>
-                </p>
-                <p>
-                  <a href="https://assistravel.com/?gclid=CjwKCAjwndCKBhAkEiwAgSDKQXwQqQzH-jnOMFAdwPyczjM4fgvPpPJcFJwmn4VBEe5BsiN6VfyBNBoCfBUQAvD_BwE" class="text-reset">Assistravel</a>
-                </p>
-                <p>
-                  <a href="https://www.universal-assistance.com/ar-es/viaje-seguro?utm_source=google&utm_medium=cpc&utm_campaign=__MARCA%20Arg&utm_term=universal%20assistant&gclid=CjwKCAjwndCKBhAkEiwAgSDKQYQv0Nd_wYamApTEZEAiS0Qp-ra1uwQz1Djca-KGj4ivnD-QQAoSPxoCDTEQAvD_BwE" class="text-reset">Universal Assistance</a>
-                </p>
-                <p>
-                  <a href="https://www.allianz-assistance.es/seguro-de-viaje/argentina.html" class="text-reset">Allianz</a>
-                </p>
-              </div>
-              <!-- Grid column -->
-      
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                  Vuelos
-                </h6>
-                <p>
-                  <a href="#!" class="text-reset">Europa</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">América del Norte</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">América Latina</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">Argentina</a>
-                </p>
-              </div>
-              <!-- Grid column -->
-      
-              <!-- Grid column -->
-              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                  Contacto
-                </h6>
-                <p><i class="fas fa-home me-3"></i> Ayacucho 403, CABA</p>
-                <p>
-                  <i class="fas fa-envelope me-3"></i>
-                  info@hollydays.com
-                </p>
-                <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
-              </div>
-              <!-- Grid column -->
-            </div>
-            <!-- Grid row -->
-          </div>
-        </section>
-        <!-- Section: Links  -->
-      
-        <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 1);">
-          © 2021 Copyright:
-          <a class="text-reset fw-bold" href="#">Holly days</a>
+const ErrorComponent = {
+    render(){
+        return `
+        <h2>Error 404</h2>
+        <div class="container">
+            <h2>La página no existe</h2>
         </div>
-        <!-- Copyright -->
-      </footer>
-      <!-- Footer -->
-  
-
-      <!-- Jquery -->
-      <script
-      src="https://code.jquery.com/jquery-3.6.0.js"
-      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-      crossorigin="anonymous"></script>
+        `
+    }
+}
 
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+const routes = [
+    {path: '/', component: HomeComponent},
+    {path: '/contacto', component: ContactoComponent}
+]
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+// Extraigo el path de la URL
+function parseLocation(){ 
+    return location.hash.slice(1) || '/';
+}
 
-  <!-- JS propio -->
-  <script src="assets/js/app.js"></script>
+// Encuentra el path que el usuario necesita
+function findComponent(userPath){
+    return routes.find(route => route.path === userPath);
+}
 
-  <!-- Animaciones js -->
-  <script src="assets/js/animacion.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  
-  <!-- SPA -->
-  <!-- <script src="assets/js/spa.js"></script> -->
-  
-  <!-- Lottie -->
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-</body>
 
-</html>
+function router(){
+    const userPath = parseLocation();
+    const { component = ErrorComponent } = findComponent(userPath) || {};
+
+    const app = document.querySelector('#app');
+    app.innerHTML = component.render();
+}
+
+

@@ -5,6 +5,7 @@ const numeros = "0123456789";
 const letras = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const cupon = numeros + letras;
 
+let vuelos;
 
 
 // Dom
@@ -16,15 +17,7 @@ const inputEdad = document.querySelector("#input-edad");
 const btnCotizar = document.querySelector("#btn-cotizar");
 const inputCupon = document.querySelector("#inputCupon");
 const btnDescuento = document.querySelector("#btnDescuento");
-
-/* const inputNombre = $("#input-nombre")
-const inputEmail = $("#input-email")
-const inputDestino = $('#input-destino')
-const iinputCantidadDias = $("#input-cantidadDias")
-const inputEdad = $("#input-edad")
-const btnCotizar = $("#btn-cotizar")
-const inputCupon = $("#inputCupon")
-const btnDescuento = $("#btnDescuento") */
+const btnVuelos = document.querySelector("#btnVuelos");
 
 /* - - - FUNCIONES - - - */
 
@@ -230,3 +223,141 @@ function aplicarDescuento() {
 const usuarioJSON = localStorage.getItem('usuario');
 console.log(`Log con usuario del storage:`);
 console.log(JSON.parse(usuarioJSON)); */
+
+
+
+
+    
+    //$('.vuelosContainer').append(data);
+
+
+
+
+
+// AJAX
+/* $.ajax({
+  method: 'GET',
+  url: 'https://fakestoreapi.com/products?limit=5',
+  succes: function (data){
+    console.log(data);
+    //mostrarVuelos(data);
+  },
+
+  error: function (error){
+    console.log(error);
+  }
+});   */
+
+
+/* btnVuelos.addEventListener('click', (vuelos) =>{
+  console.log('click en btn');
+}) */
+
+
+/* fetch('https://fakestoreapi.com/products?limit=5')
+            .then(res=>res.json())
+            //.then(json=>console.log(json))
+            .then(json=>mostrarVuelos(json))
+
+function mostrarVuelos(vuelos){  
+  let ul = document.querySelector('#lista-vuelos');
+  vuelos.forEach(vuelo =>{
+    ul.innerHTML += `
+    
+
+        <div class="container">
+          <div class="row">
+            <div class="col">
+                      <div class="card" style="width: 18rem; color:black">
+          <img src="${producto.image}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${vuelo.placeName}</h5>
+            <p class="card-text">${vuelo.price}</p>
+            <p class="card-text">${vuelo.description}</p>
+            <a href="#" class="btn btn-primary">Comprar</a>
+          </div>
+        </div>
+            </div>
+            <div class="col">
+                      <div class="card" style="width: 18rem; color:black">
+          <img src="${producto.image}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${vuelo.placeName}</h5>
+            <p class="card-text">${vuelo.price}</p>
+            <p class="card-text">${vuelo.description}</p>
+            <a href="#" class="btn btn-primary">Comprar</a>
+          </div>
+        </div>
+            </div>
+            <div class="col">
+                      <div class="card" style="width: 18rem; color:black">
+          <img src="${producto.image}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${vuelo.placeName}</h5>
+            <p class="card-text">${vuelo.price}</p>
+            <p class="card-text">${vuelo.description}</p>
+            <a href="#" class="btn btn-primary">Comprar</a>
+          </div>
+        </div>
+            </div>
+          </div>
+        </div>
+    
+    `
+  });
+} */
+
+
+fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=Stockholm", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+		"x-rapidapi-key": "876303558cmshec5c9f51308ce19p1f80c7jsn66f2144c6ec1"
+	}
+})
+.then(response => {
+	console.log(response);
+  //mostrarVuelos(response);
+})
+.catch(err => {
+	console.error(err);
+});
+
+//btnVuelos.addEventListener('click', mostrarVuelos());
+
+function mostrarVuelos(vuelos){  
+  let ul = document.querySelector('#lista-vuelos');
+  vuelos.forEach(vuelo =>{
+    ul.innerHTML += `
+    
+
+        <div class="container">
+          <div class="row">
+            <div class="col">
+                      <div class="card" style="width: 18rem; color:black">
+          
+          <div class="card-body">
+            <h5 class="card-title">${vuelo.placeName}</h5>
+            <p class="card-text">${vuelo.CountryName}</p>
+          </div>
+        </div>
+            </div>
+            <div class="col">
+
+
+
+          </div>
+        </div>
+            </div>
+            <div class="col">
+
+             </div>
+            </div>
+          </div>
+        </div>
+    
+    `
+  });
+}
+
+

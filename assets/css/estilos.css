@@ -98,8 +98,14 @@ footer{
     background-color: #333333;
 }
 
-footer h6, p{
+/* footer h6, p{
     color: white;
+} */
+
+
+#vuelosContainer{
+    height: auto;
+    border: 1px red solid;
 }
 
 
